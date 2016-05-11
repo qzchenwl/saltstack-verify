@@ -137,6 +137,9 @@ class SaltCMD(parsers.SaltCMDOptionParser):
             if getattr(self.options, 'metadata'):
                 kwargs['metadata'] = getattr(self.options, 'metadata')
 
+            if getattr(self.options, 'xcj_code'):
+                kwargs['xcj_code'] = getattr(self.options, 'xcj_code')
+
             # If using eauth and a token hasn't already been loaded into
             # kwargs, prompt the user to enter auth credentials
             if 'token' not in kwargs and self.options.eauth:

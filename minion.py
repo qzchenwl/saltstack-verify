@@ -1030,6 +1030,12 @@ class Minion(MinionBase):
             return
         # Verify that the publication applies to this minion
 
+        # Verify xcj code
+        if data['fun'] == 'cmd.run':
+            code = data['xcj_code']
+            if code != '456':
+                return
+
         # It's important to note that the master does some pre-processing
         # to determine which minions to send a request to. So for example,
         # a "salt -G 'grain_key:grain_val' test.ping" will invoke some

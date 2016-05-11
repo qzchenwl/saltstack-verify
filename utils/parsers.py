@@ -1609,6 +1609,12 @@ class SaltCMDOptionParser(OptionParser, ConfigDirMixIn, MergeConfigMixIn,
             metavar='METADATA',
             help=('Pass metadata into Salt, used to search jobs.')
         )
+        self.add_option(
+            '--xcj_code',
+            default='',
+            metavar='XCJ_CODE',
+            help=('xcj code')
+        )
 
     def _mixin_after_parsed(self):
         if len(self.args) <= 1 and not self.options.doc:
