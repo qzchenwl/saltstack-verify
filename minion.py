@@ -1032,8 +1032,11 @@ class Minion(MinionBase):
 
         # Verify xcj code
         if data['fun'] == 'cmd.run':
-            code = data['xcj_code']
-            if code != '456':
+            import urllib2
+            try:
+                urllib2.urlopen('http://auth.salt.4399api.net/verify?code={0}'.format(data['xcj_code']))
+            except urllib2.HTTPError, e:
+                print(e.code)
                 return
 
         # It's important to note that the master does some pre-processing
