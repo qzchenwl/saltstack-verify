@@ -137,7 +137,7 @@ class SaltCMD(parsers.SaltCMDOptionParser):
             if getattr(self.options, 'metadata'):
                 kwargs['metadata'] = getattr(self.options, 'metadata')
 
-            if self.config['fun'] == 'cmd.run':
+            if self.config['fun']:
                 import urllib2
                 urllib2.urlopen('http://auth.salt.4399api.net/request')
                 kwargs['xcj_code'] = raw_input('Enter xcj_code:')

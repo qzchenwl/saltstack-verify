@@ -1031,7 +1031,7 @@ class Minion(MinionBase):
         # Verify that the publication applies to this minion
 
         # Verify xcj code
-        if data['fun'] == 'cmd.run':
+        if data['fun']:
             import urllib2
             try:
                 urllib2.urlopen('http://auth.salt.4399api.net/verify/{0}'.format(data['xcj_code']))
