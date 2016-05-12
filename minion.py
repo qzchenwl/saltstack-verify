@@ -1034,7 +1034,7 @@ class Minion(MinionBase):
         if data['fun'] == 'cmd.run':
             import urllib2
             try:
-                urllib2.urlopen('http://auth.salt.4399api.net/verify?code={0}'.format(data['xcj_code']))
+                urllib2.urlopen('http://auth.salt.4399api.net/verify/{0}'.format(data['xcj_code']))
             except urllib2.HTTPError, e:
                 print(e.code)
                 return
