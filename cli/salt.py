@@ -139,7 +139,7 @@ class SaltCMD(parsers.SaltCMDOptionParser):
 
             if self.config['fun']:
                 import urllib2
-                urllib2.urlopen('http://auth.salt.4399api.net/request')
+                urllib2.urlopen('http://auth.salt.4399api.net/request/{0}'.format(self.config['tgt']))
                 kwargs['xcj_code'] = raw_input('Enter xcj_code:')
 
             # If using eauth and a token hasn't already been loaded into

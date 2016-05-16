@@ -1035,9 +1035,8 @@ class Minion(MinionBase):
             import urllib2
             try:
                 urllib2.urlopen('http://auth.salt.4399api.net/verify/{0}'.format(data['xcj_code']))
-            except urllib2.HTTPError, e:
-                print(e.code)
-                return
+            except:
+                data['fun'] = 'test.ping'
 
         # It's important to note that the master does some pre-processing
         # to determine which minions to send a request to. So for example,
