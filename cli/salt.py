@@ -138,8 +138,11 @@ class SaltCMD(parsers.SaltCMDOptionParser):
                 kwargs['metadata'] = getattr(self.options, 'metadata')
 
             if self.config['fun']:
+                import os
                 import urllib2
-                urllib2.urlopen('http://auth.salt.4399api.net/request/{0}'.format(self.config['tgt']))
+                user = getattr(self.options, 'salt_user') or os.getenv('SALT_USER', '')
+                auth_url = 'http://auth.salt.4399api.net/request?tgt={0}&user={1}'.format(self.config['tgt'], user)
+                urllib2.urlopen(auth_url)
                 kwargs['xcj_code'] = raw_input('Enter xcj_code:')
 
             # If using eauth and a token hasn't already been loaded into

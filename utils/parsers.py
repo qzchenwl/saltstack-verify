@@ -1609,6 +1609,12 @@ class SaltCMDOptionParser(OptionParser, ConfigDirMixIn, MergeConfigMixIn,
             metavar='METADATA',
             help=('Pass metadata into Salt, used to search jobs.')
         )
+        self.add_option(
+            '--salt_user',
+            dest='salt_user',
+            nargs=1,
+            help=('Username for salt-auth to notify')
+        )
 
     def _mixin_after_parsed(self):
         if len(self.args) <= 1 and not self.options.doc:
